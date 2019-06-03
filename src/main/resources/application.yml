@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    #password: 1605103328
+    url: jdbc:mysql://172.17.0.4:3306/mydb?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT&useSSL=false&allowPublicKeyRetrieval=true
+    # url: jdbc:mysql://192.168.109.146:3306/mydb?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT&useSSL=false&allowPublicKeyRetrieval=true
+    #url: jdbc:mysql://localhost:3306/mydb?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT&useSSL=false
+#    max-idle: 10
+#    max-wait: 1000
+
+
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${web.upload-path}
+
+  thymeleaf:
+    mode: HTML
+    encoding: UTF-8
+    cache: false
+
+  mvc:
+    static-path-pattern: /**
+
+  data:
+    cassandra:
+      cluster-name: Test Cluster
+      keyspace-name: mydb
+      contact-points: 172.17.0.2
+      port: 9042
+
+# contact-points: 192.168.109.145
+logging:
+  level:
+    cn.lzd: debug
